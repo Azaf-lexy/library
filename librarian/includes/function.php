@@ -67,7 +67,7 @@ function getAttribute($key)
     function dropdown_student()
     {
         global $conn;
-        $stmt = $conn->prepare("SELECT username FROM student_registration WHERE role = 'member' ");
+        $stmt = $conn->prepare("SELECT username FROM student_registration WHERE role = 'student ' ");
         $stmt->execute();
 
         // Fetch all results as an associative array

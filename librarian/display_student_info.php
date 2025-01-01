@@ -101,7 +101,7 @@ include "header.php";
                         <label for="role">Role</label>
                         <select class="form-control" id="role" name="role" required>
                             <option value="admin">Admin</option>
-                            <option value="member">Member</option>
+                            <option value="student">Student</option>
                         </select>
                     </div>
                 </div>
