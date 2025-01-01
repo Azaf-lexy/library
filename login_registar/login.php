@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include_once "../l/connection.php"; // Ensure $conn is properly defined here
+include_once "../librarian/connection.php"; // Ensure $conn is properly defined here
 ?>
 
 <!DOCTYPE html>
