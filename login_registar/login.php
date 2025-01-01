@@ -1,6 +1,7 @@
 <?php 
 session_start();
 include_once "../librarian/connection.php"; // Ensure $conn is properly defined here
+include_once "../librarian/includes/function.php"; // Ensure $conn is properly defined here
 ?>
 
 <!DOCTYPE html>
@@ -53,24 +54,34 @@ include_once "../librarian/connection.php"; // Ensure $conn is properly defined 
     <?php
 if (isset($_POST['submit1'])) {
     try {
-        $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL); // Sanitize email
-        $password = trim($_POST['password']); // Ensure no unnecessary whitespace
+        // Sanitize inputs
+        $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
+        $password = trim($_POST['password']);
 
-        // Call your loginCheck function to validate the user
+        // Validate inputs
+        if (empty($email) || empty($password)) {
+            throw new Exception("Email and password are required.");
+        }
+
+        // Call loginCheck function
         $user = loginCheck('student_registration', $email, $password);
-     
+
         if ($user) {
-            // Set session variables
-            $_SESSION['student_username'] = $user['username']; // Correct session variable for username
+            // Start the session and set session variables
+            session_start();
+            $_SESSION['student_username'] = $user['username'];
             $_SESSION['email'] = $user['email'];
             $_SESSION['role'] = $user['role'];
+
+            // Redirect to dashboard
             header('Location: ../librarian/display_books.php');
-            echo '<div class="alert alert-success col-lg-6 col-lg-push-3">Login Success</div>';
             exit(); // Prevent further execution
         } else {
             echo '<div class="alert alert-danger col-lg-6 col-lg-push-3">Login Failed. Invalid email or password.</div>';
         }
     } catch (PDOException $e) {
+        echo '<div class="alert alert-danger col-lg-6 col-lg-push-3">Database Error: ' . htmlspecialchars($e->getMessage()) . '</div>';
+    } catch (Exception $e) {
         echo '<div class="alert alert-danger col-lg-6 col-lg-push-3">Error: ' . htmlspecialchars($e->getMessage()) . '</div>';
     }
 }
