@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include_once "../librarian/connection.php"; // Ensure $conn is properly defined here
+include_once "../l/connection.php"; // Ensure $conn is properly defined here
 ?>
 
 <!DOCTYPE html>
@@ -11,9 +11,9 @@ include_once "../librarian/connection.php"; // Ensure $conn is properly defined 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Student Login Form | LMS</title>
-    <link href="../student/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../student/css/animate.min.css" rel="stylesheet">
-    <link href="../student/css/custom.min.css" rel="stylesheet">
+    <link href="../librarian/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../librarian/css/animate.min.css" rel="stylesheet">
+    <link href="../librarian/css/custom.min.css" rel="stylesheet">
 </head>
 
 <body class="login">
