@@ -30,9 +30,6 @@ try {
 // Update logic when the form is submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['editBorrowId'])) {
     $borrowId = $_POST['editBorrowId'];
-    // $studentName = $_POST['editStudentName'];
-    // $bookName = $_POST['editBookName'];
-    // $borrowDate = $_POST['editBorrowDate'];
     $returnDate = $_POST['editReturnDate'];
     $due_date = $_POST['due_date'];
 
