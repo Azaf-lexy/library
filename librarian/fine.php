@@ -29,11 +29,13 @@ include "header.php";
                             $query = ("UPDATE borrow
 SET 
     fine = CASE 
+        WHEN return_Date IS NOT NULL AND return_Date <= due_date THEN 0
         WHEN return_Date IS NOT NULL AND return_Date > due_date THEN DATEDIFF(return_Date, due_date) * 20
         WHEN due_date < CURDATE() AND (return_Date IS NULL OR return_Date = '0000-00-00') THEN DATEDIFF(CURDATE(), due_date) * 20
         ELSE fine
     END
-WHERE due_date IS NOT NULL;");
+WHERE due_date IS NOT NULL;
+");
 
                             $conn->exec($query);
 

@@ -52,7 +52,7 @@ include "connection.php"; // Includes the PDO connection
 
                                 <tr>
                                     <td>
-                                        <input type="submit" name="submit1" class="btn btn-primary" value="Insert Book Details" style="background-color: #912633; color:white">
+                                        <input type="submit" name="submit1" class="btn btn-primary" value="Insert Book Details">
                                     </td>
                                 </tr>
                             </table>

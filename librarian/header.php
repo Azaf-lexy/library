@@ -87,7 +87,7 @@ $username = getAttribute("student_username");
 
                                 <?php if ($role   == 'admin') : ?>
                                     <li>
-                                        <a href="add_borrowbook.php"><i class=""></i>Add Borrow Book <span class="fa fa-chevron-down"></span></a>
+                                        <a href="add_borrowbook.php"><i class="fa fa-plus"></i>Add Borrow Book <span class="fa fa-chevron-down"></span></a>
                                     </li>
                                 <?php endif; ?>
                             </ul>

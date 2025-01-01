@@ -69,12 +69,7 @@ $student_dropdown = dropdown_student();
                                     </td>
                                 </tr>
 
-                                <tr>
-                                    <td>
-                                        <label for="return_Date">Returned Date:</label>
-                                        <input type="date" class="form-control" name="return_Date">
-                                    </td>
-                                </tr>
+                             
 
                                 <tr>
                                     <td>
@@ -86,7 +81,7 @@ $student_dropdown = dropdown_student();
 
                                 <tr>
                                     <td>
-                                        <input type="submit" name="submit1" class="btn btn-primary" value="Insert Book Details" style="background-color: #912633; color:white">
+                                        <input type="submit" name="submit1" class="btn btn-primary" value="Insert Book Details">
                                     </td>
                                 </tr>
                             </table>
@@ -103,15 +98,14 @@ if (isset($_POST["submit1"])) {
     try {
         // Prepare and bind
         $stmt = $conn->prepare("
-            INSERT INTO borrow (student_name, book_name, borrow_Date, return_Date,due_date) 
-            VALUES (:student_name, :book_name, :borrow_Date, :return_Date,:due_date)
+            INSERT INTO borrow (student_name, book_name, borrow_Date, due_date) 
+            VALUES (:student_name, :book_name, :borrow_Date, :due_date)
         ");
 
         // Bind parameters
         $stmt->bindParam(':student_name', $_POST["student_name"]);
         $stmt->bindParam(':book_name', $_POST["book_name"]);
         $stmt->bindParam(':borrow_Date', $_POST["borrow_Date"]);
-        $stmt->bindParam(':return_Date', $_POST["return_Date"]);
         $stmt->bindParam(':due_date', $_POST["due_date"]);
 
         // Execute the statement

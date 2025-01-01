@@ -150,6 +150,10 @@ WHERE borrowId = :borrowId";
                         <input type="date" name="editBorrowDate" id="editBorrowDate" class="form-control" readonly>
                     </div>
                     <div class="form-group">
+                        <label for="editduedate">Due Date</label>
+                        <input type="date" name="editduedate" id="editduedate" class="form-control" readonly>
+                    </div>
+                    <div class="form-group">
                         <label for="editReturnDate">Return Date</label>
                         <input type="date" name="editReturnDate" id="editReturnDate" class="form-control" required>
                     </div>
@@ -171,6 +175,7 @@ function openEditModal(data) {
     document.getElementById('editStudentName').value = data.student_name;
     document.getElementById('editBookName').value = data.book_name;
     document.getElementById('editBorrowDate').value = data.borrow_Date;
+    document.getElementById('editduedate').value = data.due_date;
     document.getElementById('editReturnDate').value = data.return_Date;
    
     // Show the modal
